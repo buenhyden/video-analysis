@@ -1,0 +1,78 @@
+name: Bug Report / 버그 리포트
+description: Report a defect with reproducible details / 결함 상세 보고
+title: '[BUG] '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        버그를 보고해 주셔서 감사합니다. 수정 및 검증을 위해 충분한 정보를 제공해 주세요.
+        Thanks for reporting a bug. Please provide enough detail to reproduce and validate the fix.
+  - type: input
+    id: spec_link
+    attributes:
+      label: Related Spec Link / 관련 명세서 링크
+      description:
+        Link to the spec in `docs/03.specs/` (if available) / `docs/03.specs/`에 정의된 명세서
+        링크
+      placeholder: https://github.com/<org>/<repo>/blob/main/docs/03.specs/<file>.md
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary / 개요
+      description: Clear description of the bug / 버그에 대한 명확한 설명
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce / 재현 경로
+      description: Numbered steps with exact inputs / 상세 재현 순서 (입력값 포함)
+      placeholder: |
+        1. ...로 이동
+        2. ...를 클릭
+        3. ...를 확인
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior / 기대 결과
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior / 실제 현상
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment / 실행 환경
+      description: OS, runtime, browser, app version / 운영체제, 런타임, 브라우저 버전 등
+      placeholder: Ubuntu 24.04 / Node 20 / Chrome 122
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity / 심각도
+      description: Initial impact estimate / 초기 영향도 추정치
+      options:
+        - low (낮음)
+        - medium (보통)
+        - high (높음)
+        - critical (치명적)
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics / Logs / 진단 정보 및 로그
+      description: Paste relevant logs, trace IDs, or screenshots (redact secrets/PII). /
+        관련 로그, Trace ID, 스크린샷 (민감 정보 제외).
+    validations:
+      required: false

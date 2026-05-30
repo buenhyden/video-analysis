@@ -1,0 +1,81 @@
+name: Security CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  schedule:
+    - cron: '0 12 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  security-audit:
+    name: Local security and secret checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Gitleaks Scan
+        uses: gitleaks/gitleaks-action@dcedce43c6f43de0b836d1fe38946645c9c638dc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run local security gate
+        run: bash scripts/ci/validate-security.sh
+
+      - name: Upload Gitleaks Report
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: gitleaks-report
+          path: gitleaks.json
+          retention-days: 1
+
+  codeql-analyze:
+    name: Optional CodeQL analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@c10b8064de6f491fea524254123dbe5e09572f13
+        with:
+          languages: actions
+
+      - name: Perform CodeQL Analysis
+        id: codeql_analyze
+        uses: github/codeql-action/analyze@c10b8064de6f491fea524254123dbe5e09572f13
+        continue-on-error: true
+        with:
+          category: '/language:actions'
+
+      - name: Enforce CodeQL upload when repository support is required
+        if: ${{ always() && steps.codeql_analyze.outcome == 'failure' && vars.CODE_SCANNING_REQUIRED == 'true' }}
+        run: |
+          echo "CodeQL analyze/upload failed while CODE_SCANNING_REQUIRED=true."
+          echo "Enable GitHub code scanning for this repository or fix the underlying CodeQL issue."
+          exit 1
+
+      - name: Warn when CodeQL upload is optional for template repositories
+        if: ${{ always() && steps.codeql_analyze.outcome == 'failure' && vars.CODE_SCANNING_REQUIRED != 'true' }}
+        run: |
+          echo "::warning::CodeQL analyze/upload failed, but CODE_SCANNING_REQUIRED is not enabled."
+          echo "::warning::For private template repositories, enable GitHub Code Scanning and set CODE_SCANNING_REQUIRED=true when you want this workflow to block merges."

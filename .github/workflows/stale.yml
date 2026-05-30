@@ -1,0 +1,31 @@
+name: 'Close Stale Issues and PRs'
+
+on:
+  schedule:
+    - cron: '30 1 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-schedule
+  cancel-in-progress: true
+
+jobs:
+  stale:
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/stale@5bef64f19d7facfb25b37b414482c7164d639639 # v9
+        with:
+          stale-issue-message: 'This issue has been automatically marked as stale because it has
+            not had recent activity. It will be closed if no further activity
+            occurs. Thank you for your contributions!'
+          stale-pr-message: 'This PR has been automatically marked as stale because it has not
+            had recent activity. It will be closed if no further activity
+            occurs. Thank you for your contributions!'
+          stale-issue-label: 'status: stale'
+          stale-pr-label: 'status: stale'
+          days-before-stale: 30
+          days-before-close: 7

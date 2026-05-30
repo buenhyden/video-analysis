@@ -1,0 +1,17 @@
+title = "Project-Template gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Template placeholders and generated baselines"
+paths = [
+  '''^\.secrets\.baseline$''',
+  '''^docs/99\.templates/''',
+]
+regexes = [
+  '''postgresql://user:[^@]+@db:5432/myapp''',
+  '''POSTGRES_PASSWORD=[A-Za-z0-9_-]+''',
+  '''security@example\.com''',
+  '''your-github-username-or-team''',
+]

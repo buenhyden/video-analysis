@@ -1,0 +1,57 @@
+# Target: docs/03.specs/<feature-id>/contracts/openapi.yaml
+#
+# Usage Guidance:
+# - When to use: For machine-readable REST API contracts.
+# - Mandatory: info, paths, components.
+# - Hard Stop: STOP if contract lint fails.
+# - Downstream Trigger: Link this contract from the parent spec and API spec.
+# - Evidence Rule: Record contract lint or review evidence in the execution task.
+#
+# Target-relative related documents from generated location:
+# - Parent Spec: ../spec.md
+# - Test Strategy: ../tests.md
+# - API Spec: ../api-spec.md
+#
+openapi: 3.1.0
+info:
+  title: Example Feature API
+  version: 0.1.0
+  description: |
+    Contract-first API definition for the feature.
+servers:
+  - url: https://api.example.com
+tags:
+  - name: example
+paths:
+  /example:
+    get:
+      tags: [example]
+      operationId: getExample
+      summary: Get example resource
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExampleResponse"
+        "400":
+          description: Bad request
+components:
+  schemas:
+    ExampleResponse:
+      type: object
+      required: [id, status]
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum: [ok]
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []

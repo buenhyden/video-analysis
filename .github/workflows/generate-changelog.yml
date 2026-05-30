@@ -1,0 +1,112 @@
+name: Generate Changelog
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  changelog:
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: Generate changelog PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Generate changelog
+        uses: orhun/git-cliff-action@c93ef52f3d0ddcdcc9bd5447d98d458a11cd4f72 # v4
+        id: git-cliff
+        with:
+          config: cliff.toml
+          args: --verbose
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: Commit changelog to generated branch
+        id: changelog_changes
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No CHANGELOG.md changes to propose."
+            exit 0
+          fi
+
+          BRANCH="chore/changelog-${RELEASE_TAG}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B "${BRANCH}"
+          git add CHANGELOG.md
+          git commit -m "docs(release): update changelog for ${RELEASE_TAG} [skip ci]"
+          git push --force-with-lease origin "${BRANCH}"
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "branch=${BRANCH}" >> "$GITHUB_OUTPUT"
+
+      - name: Render changelog PR body
+        if: steps.changelog_changes.outputs.changed == 'true'
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+          PR_BODY_PATH: ${{ runner.temp }}/changelog-pr-body.md
+        run: node .github/scripts/render-changelog-pr-body.mjs "$RELEASE_TAG" "$PR_BODY_PATH"
+
+      - name: Create or update changelog PR
+        if: steps.changelog_changes.outputs.changed == 'true'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        env:
+          CHANGELOG_BRANCH: ${{ steps.changelog_changes.outputs.branch }}
+          RELEASE_TAG: ${{ github.ref_name }}
+          PR_BODY_PATH: ${{ runner.temp }}/changelog-pr-body.md
+        with:
+          script: |
+            const fs = require('fs');
+            const branch = process.env.CHANGELOG_BRANCH;
+            const tag = process.env.RELEASE_TAG;
+            const title = `docs(release): update changelog for ${tag}`;
+            const body = fs.readFileSync(process.env.PR_BODY_PATH, 'utf8');
+
+            const { data: prs } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${context.repo.owner}:${branch}`,
+              base: 'main',
+              state: 'open',
+            });
+
+            if (prs.length > 0) {
+              const { data: pr } = await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prs[0].number,
+                title,
+                body,
+              });
+              core.info(`Changelog PR updated: ${pr.html_url}`);
+              return;
+            }
+
+            const { data: pr } = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              head: branch,
+              base: 'main',
+              body,
+            });
+
+            core.info(`Changelog PR created: ${pr.html_url}`);

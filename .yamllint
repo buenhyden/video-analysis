@@ -1,0 +1,30 @@
+extends: default
+ignore: |
+  .git/
+  .claude/
+  .codex/
+  .history/
+  .mypy_cache/
+  .sisyphus/
+  node_modules/
+  dist/
+  coverage/
+  storybook-static/
+rules:
+  braces:
+    max-spaces-inside: 1
+  brackets:
+    max-spaces-inside: 1
+  document-start: disable
+  comments-indentation: disable
+  indentation:
+    spaces: 2
+    indent-sequences: consistent
+  comments:
+    min-spaces-from-content: 1
+  line-length:
+    max: 220
+    level: warning
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off']
+    check-keys: false

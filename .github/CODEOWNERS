@@ -1,0 +1,38 @@
+# CODEOWNERS — Project-Template
+#
+# ⚠️  PLACEHOLDER STATE: Replace @your-org/* with real GitHub users or teams before
+#     enabling "Require review from Code Owners" in branch protection settings.
+#     Enforcement with placeholder owners silently skips reviews.
+#     See docs/00.agent-governance/rules/github-repository-governance.md §2 and §9.
+#
+# Owners must have explicit write access to this repository.
+
+# Default: all files require maintainer review
+* @your-org/maintainers
+
+# Governance layer — requires architect/governance owner review
+docs/00.agent-governance/** @your-org/architects
+docs/99.templates/**        @your-org/architects
+AGENTS.md                   @your-org/architects
+CLAUDE.md                   @your-org/architects
+GEMINI.md                   @your-org/architects
+
+# Product & planning layer
+docs/01.requirements/**              @your-org/planners
+docs/02.architecture/requirements/** @your-org/architects
+docs/02.architecture/decisions/**    @your-org/architects
+docs/03.specs/**                     @your-org/planners
+docs/04.execution/**                 @your-org/planners
+
+# Infrastructure & operations layer
+docs/05.operations/policies/** @your-org/devops
+docs/05.operations/runbooks/** @your-org/devops
+.github/workflows/**  @your-org/devops
+.github/gates/**      @your-org/devops
+.github/scripts/**    @your-org/devops
+.github/zizmor.yml    @your-org/devops
+.github/**            @your-org/maintainers
+scripts/**            @your-org/devops
+
+# Security & incident layer
+docs/05.operations/incidents/** @your-org/security

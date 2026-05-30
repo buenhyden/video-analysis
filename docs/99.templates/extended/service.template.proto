@@ -1,0 +1,30 @@
+// [OPTIONAL] Target: docs/03.specs/<feature-id>/contracts/service.proto
+//
+// Usage Guidance:
+// - When to use: For machine-readable gRPC / Protobuf contracts (optional; use only if gRPC is in scope).
+// - Mandatory fields (if used): syntax, package, service, messages.
+// - Hard Stop: STOP if gRPC is not adopted by the parent spec.
+// - Downstream Trigger: Link this service contract from the parent spec and API spec.
+// - Evidence Rule: Record proto lint or review evidence in the execution task.
+//
+// Target-relative related documents from generated location:
+// - Parent Spec: ../spec.md
+// - Test Strategy: ../tests.md
+// - API Spec: ../api-spec.md
+//
+syntax = "proto3";
+
+package example.v1;
+
+service ExampleService {
+  rpc GetExample (GetExampleRequest) returns (GetExampleResponse);
+}
+
+message GetExampleRequest {
+  string id = 1;
+}
+
+message GetExampleResponse {
+  string id = 1;
+  string status = 2;
+}

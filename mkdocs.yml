@@ -1,0 +1,41 @@
+site_name: Project-Template Documentation
+site_description: Language-agnostic AI-native project governance template with no default application stack
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: cyan
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+nav:
+  - Welcome: README.md
+  - Stage-Gate SDLC:
+      - Stage 00. Agent Governance: docs/00.agent-governance/README.md
+      - Stage 01. PRD: docs/01.requirements/README.md
+      - Stage 02. ARD: docs/02.architecture/requirements/README.md
+      - Stage 03. ADR: docs/02.architecture/decisions/README.md
+      - Stage 04. Specs: docs/03.specs/README.md
+      - Stage 05. Implementation Plans: docs/04.execution/plans/README.md
+      - Stage 06. Tasks: docs/04.execution/tasks/README.md
+      - Stage 07. Guides: docs/05.operations/guides/README.md
+      - Stage 08. Operations: docs/05.operations/policies/README.md
+      - Stage 09. Runbooks: docs/05.operations/runbooks/README.md
+      - Stage 10. Incidents: docs/05.operations/incidents/README.md
+      - References: docs/90.references/README.md
+      - Templates: docs/99.templates/README.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

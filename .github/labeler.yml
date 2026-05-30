@@ -1,0 +1,37 @@
+# Configuration for .github/workflows/labeler.yml
+
+# Documentation
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/**'
+      - any-glob-to-any-file: '*.md'
+
+# Agent & Governance
+governance:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/00.agent-governance/**'
+      - any-glob-to-any-file: '.claude/**'
+      - any-glob-to-any-file: 'AGENTS.md'
+      - any-glob-to-any-file: 'CLAUDE.md'
+      - any-glob-to-any-file: 'GEMINI.md'
+
+# CI/CD & GitHub metadata
+cicd:
+  - changed-files:
+      - any-glob-to-any-file: '.github/**'
+
+# Script automation
+scripts:
+  - changed-files:
+      - any-glob-to-any-file: 'scripts/**'
+
+# Template content
+template:
+  - changed-files:
+      - any-glob-to-any-file: 'docs/99.templates/**'
+      - any-glob-to-any-file: 'DESIGN.md'
+
+# Optional examples
+example:
+  - changed-files:
+      - any-glob-to-any-file: 'examples/**'

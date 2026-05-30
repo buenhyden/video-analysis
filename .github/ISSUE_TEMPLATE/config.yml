@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+# CUSTOMIZE: Update these URLs to point to your repository's Discussions and documentation.
+contact_links:
+  - name: 💬 Project Discussions
+    url: https://github.com/OWNER/REPO/discussions
+    about: Ask questions and share ideas with the community.
+  - name: 📘 Documentation
+    url: https://github.com/OWNER/REPO/tree/main/docs
+    about: Access the project's guides and standards.

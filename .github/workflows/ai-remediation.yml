@@ -1,0 +1,38 @@
+name: CI Failure Diagnostics
+
+on:
+  workflow_run:
+    workflows:
+      - "Template CI / 템플릿 정합성 검증"
+      - "Security CI"
+      - "Repository Intelligence"
+    branches: [main, dev]
+    types: [completed]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.id || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  on-failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Collect Context
+        run: |
+          mkdir -p _workspace/diagnostics
+          bash scripts/ws.sh info > _workspace/diagnostics/ci_failure.txt
+          bash scripts/ci/collect-context.sh
+
+      - name: Dispatch AI Remediation
+        run: |
+          echo "AI Agent dispatched for remediation."
+          echo "Policy: diagnostics only; no automatic protected-branch changes."

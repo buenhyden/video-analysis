@@ -1,0 +1,309 @@
+minimum_pre_commit_version: '3.7.0'
+fail_fast: false
+default_stages: [pre-commit]
+exclude: >-
+  (?x)^(
+    \.claude($|/)|
+    \.codex($|/)|
+    \.git($|/)|
+    \.history($|/)|
+    \.mypy_cache($|/)|
+    \.pytest_cache($|/)|
+    \.ruff_cache($|/)|
+    \.sisyphus($|/)|
+    \.venv($|/)|
+    coverage($|/)|
+    dist($|/)|
+    graphify-out($|/)|
+    node_modules($|/)|
+    storybook-static($|/)
+  )
+
+repos:
+  # --- 1. 파일 시스템 및 기본 형식 검사 ---
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=5000]
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-json
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+
+  # --- 2. Linting (YAML, Markdown, Shell) ---
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.38.0
+    hooks:
+      - id: yamllint
+        files: '\.(yaml|yml)$'
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.22.1 # 또는 최신 릴리스
+    hooks:
+      - id: markdownlint-cli2
+        require_serial: true
+        files: '\.(md|mdx)$'
+        # Thin router/provider overlay markdown is excluded in .markdownlint-cli2.yaml.
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.11.0.1
+    hooks:
+      - id: shellcheck
+        args: ['--severity=warning', '--rcfile=.shellcheckrc']
+        files: '\.(sh|bash)$'
+
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.8.3
+    hooks:
+      - id: prettier
+        types_or: [json, javascript, ts]
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.37.2
+    hooks:
+      - id: check-dependabot
+        files: '^\.github/dependabot\.yml$'
+      - id: check-readthedocs
+        # Future-ready no-op: the hook remains dormant until .readthedocs.yml exists.
+        files: '^\.readthedocs\.yml$'
+
+  # Validation library and CLI tool for checking on 'pyproject.toml' files using JSON Schema
+  # - repo: https://github.com/abravalheri/validate-pyproject
+  #   rev: v0.24.1
+  #   hooks:
+  #     - id: validate-pyproject
+  #       # Optional extra validations from SchemaStore:
+  #       additional_dependencies: ["validate-pyproject-schema-store[all]"]
+
+  # - repo: https://github.com/rohaquinlop/complexipy-pre-commit
+  #   rev: v4.2.0
+  #   hooks:
+  #     - id: complexipy
+  #       args: [--max-complexity-allowed=10]
+
+  # --- 2. 코드 스타일 및 고속 린팅 (Ruff) ---
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   # Ruff version.
+  #   rev: v0.14.14
+  #   hooks:
+  #     # Run the linter.
+  #     - id: ruff-check
+  #       args: [--fix]
+  #     # Run the formatter.
+  #     - id: ruff-format
+
+  # --- 3. 정적 타입 검사 (Ty - Fast local check) ---
+  # - repo: local
+  #   hooks:
+  #     - id: ty-check
+  #       name: ty (py-common)
+  #       entry: uv run ty check libs/py-common --project libs/py-common --python
+  #         libs/py-common/.venv --ignore unresolved-import
+  #       language: system
+  #       types: [python]
+  #       files: ^libs/py-common/
+  #       pass_filenames: false
+
+  # --- 4. 보안 감사 (Security) ---
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.9.4
+    hooks:
+      - id: bandit
+        args: ['-c', 'bandit.yaml']
+        additional_dependencies: ['bandit[toml]']
+        files: '\.py$'
+        stages: [pre-push]
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: '^(uv\.lock|\.secrets\.baseline|\.gitleaks\.toml)$'
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+        args: ['--config=.gitleaks.toml']
+
+  # --- 5. 인프라 및 도커 검사 (Infrastructure) ---
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.24.1
+    hooks:
+      - id: zizmor
+        files: '^\.github/workflows/.*\.(yaml|yml)$'
+
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.14.0
+    hooks:
+      - id: hadolint-docker
+        files: '(^|/)(Dockerfile|Dockerfile\.[^/]+)$'
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint # GitHub Actions 워크플로우 검사
+        files: '^\.github/workflows/.*\.(yaml|yml)$'
+
+  # --- 6. 문서 및 정합성 검사 (Content) ---
+  - repo: local
+    hooks:
+      - id: validate-template
+        name: Validate Required Template Files and Directories
+        entry: >-
+          bash -eu -o pipefail -c '
+            files="
+            AGENTS.md
+            .github/PULL_REQUEST_TEMPLATE.md
+            .github/SECURITY.md
+            .github/ISSUE_TEMPLATE/feature_request.yml
+            .github/ISSUE_TEMPLATE/bug_report.yml
+            docs/99.templates/adr.template.md
+            docs/99.templates/api-spec.template.md
+            docs/99.templates/ard.template.md
+            docs/99.templates/guide.template.md
+            docs/99.templates/incident.template.md
+            docs/99.templates/methodology.template.md
+            docs/99.templates/operation.template.md
+            docs/99.templates/openapi.template.yaml
+            docs/99.templates/plan.template.md
+            docs/99.templates/postmortem.template.md
+            docs/99.templates/prd.template.md
+            docs/99.templates/readme.template.md
+            docs/99.templates/reference.template.md
+            docs/99.templates/runbook.template.md
+            docs/99.templates/extended/schema.template.graphql
+            docs/99.templates/extended/service.template.proto
+            docs/99.templates/session-memory.template.md
+            docs/99.templates/spec.template.md
+            docs/99.templates/task.template.md
+            docs/99.templates/tests.template.md
+            ";
+            for f in $files; do
+              [ -f "$f" ] || { echo "Missing required file $f"; exit 1; }
+            done;
+            dirs="docs docs/99.templates docs/00.agent-governance";
+            for d in $dirs; do
+              [ -d "$d" ] || { echo "Missing required directory $d"; exit 1; }
+            done'
+        language: system
+        pass_filenames: false
+
+      - id: validate-docs-schema
+        name: Validate Documentation Schema and Governance
+        entry: scripts/validation/validate-docs.sh
+        language: script
+        pass_filenames: false
+
+      - id: verify-application
+        name: Verify Application (Lint & Test)
+        entry: >-
+          bash -eu -o pipefail -c '
+            for d in web server app tests; do
+              [ -d "$d" ] || continue
+              [ -f "$d/package.json" ] || continue
+
+              install_cmd=""
+              run_prefix=""
+              if [ -f "$d/package-lock.json" ]; then
+                if ! command -v npm >/dev/null 2>&1; then
+                  if [ "${CI:-false}" = "true" ]; then
+                    echo "[$d] npm is required in CI for package-lock verification."
+                    exit 1
+                  fi
+                  echo "[$d] skipping npm verification outside CI because npm is not installed."
+                  continue
+                fi
+                install_cmd="npm ci"
+                run_prefix="npm run"
+              elif [ -f "$d/pnpm-lock.yaml" ]; then
+                if ! command -v corepack >/dev/null 2>&1; then
+                  if [ "${CI:-false}" = "true" ]; then
+                    echo "[$d] corepack is required in CI for pnpm verification."
+                    exit 1
+                  fi
+                  echo "[$d] skipping pnpm verification outside CI because corepack is not installed."
+                  continue
+                fi
+                install_cmd="corepack pnpm install --frozen-lockfile"
+                run_prefix="corepack pnpm"
+              elif [ -f "$d/yarn.lock" ]; then
+                if ! command -v corepack >/dev/null 2>&1; then
+                  if [ "${CI:-false}" = "true" ]; then
+                    echo "[$d] corepack is required in CI for yarn verification."
+                    exit 1
+                  fi
+                  echo "[$d] skipping yarn verification outside CI because corepack is not installed."
+                  continue
+                fi
+                install_cmd="corepack yarn install --immutable"
+                run_prefix="corepack yarn"
+              else
+                echo "[$d] package.json present but no supported lockfile; skipping install-based verification."
+                continue
+              fi
+
+              has_lint=0
+              has_test=0
+              has_coverage=0
+              grep -q "\"lint\"" "$d/package.json" && has_lint=1 || true
+              grep -q "\"test\"" "$d/package.json" && has_test=1 || true
+              grep -q "\"test:coverage\"" "$d/package.json" && has_coverage=1 || true
+
+              if [ "$has_lint" -eq 0 ] && [ "$has_test" -eq 0 ] && [ "$has_coverage" -eq 0 ]; then
+                echo "[$d] no lint/test scripts declared; skipping."
+                continue
+              fi
+
+              echo "[$d] Running verification..."
+              (
+                cd "$d"
+                if [ "${CI:-false}" = "true" ]; then
+                  eval "$install_cmd"
+                elif [ ! -d node_modules ]; then
+                  echo "[$d] skipping install-based verification outside CI because node_modules is absent."
+                  exit 0
+                fi
+
+                if [ "$has_lint" -eq 1 ]; then
+                  eval "$run_prefix lint"
+                fi
+
+                if [ "$has_coverage" -eq 1 ]; then
+                  eval "$run_prefix test:coverage"
+                elif [ "$has_test" -eq 1 ]; then
+                  eval "$run_prefix test"
+                fi
+              )
+            done'
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+  # - repo: https://github.com/HunterMcGushion/docstr_coverage
+  #   rev: v2.3.2 # most recent docstr-coverage release or commit sha
+  #   hooks:
+  #     - id: docstr-coverage
+  #       language: system
+  #       pass_filenames: false
+  #       args:
+  #         - services/
+  #         - libs/
+  #         - --fail-under=80
+  #         - --exclude
+  #         - .*\\.venv.*
+
+  # --- 7. 커밋 및 메시지 (Release) ---
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.15.1
+    hooks:
+      - id: commitizen
+        args: [--allow-abort, --message-length-limit=75]
+        stages: [commit-msg]

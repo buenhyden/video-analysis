@@ -1,0 +1,7 @@
+# Allow repo-local sourcing patterns without masking broader shell issues.
+source-path=SCRIPTDIR
+external-sources=true
+disable=SC1091
+# SC2006/SC2287: markdown backtick code spans inside documentation-generating
+# heredocs are misidentified as legacy shell command substitution.
+disable=SC2006,SC2287

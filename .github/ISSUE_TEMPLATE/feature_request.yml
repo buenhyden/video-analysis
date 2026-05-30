@@ -1,0 +1,65 @@
+name: Feature Request / 기능 요청
+description: Propose a new feature using the spec-driven approach / 설계 중심의 새 기능
+  제안
+title: '[FEATURE] '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        기능 제안을 위해 시간을 내주셔서 감사합니다!
+        **주의**: 모든 기능은 반드시 설계-중심(Spec-driven) 개발 프로세스를 거쳐야 합니다.
+        Thanks for taking the time to suggest a feature! All features must go through the spec-driven process.
+  - type: input
+    id: prd_link
+    attributes:
+      label: PRD / ARD Link / 기획 및 설계 문서 링크
+      description: Provide a link to the PRD (docs/01.requirements/) or ARD (docs/02.architecture/requirements/) for this feature.
+        / 해당 기능의 PRD 또는 ARD 링크를 제공해 주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement / 문제 정의
+      description: What user/business problem should this feature solve? / 이 기능이
+        해결하려는 사용자 또는 비즈니스 문제는 무엇인가요?
+    validations:
+      required: true
+  - type: textarea
+    id: expected_outcome
+    attributes:
+      label: Expected Outcome / 기대 효과
+      description: What measurable outcome should improve after this feature? / 이 기능
+        도입 후 개선될 수치화된 지표는 무엇인가요?
+      placeholder: '예: 온보딩 소요 시간을 8분에서 5분 미만으로 단축'
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description / 상세 설명
+      description: A clear and concise description of what the feature is and what it aims
+        to solve. / 기능의 정의와 해결 목표에 대한 명확하고 간결한 설명.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria (Given-When-Then) / 수락 기준
+      description: Provide testable acceptance criteria. / 테스트 가능한 수락 기준을 제공해
+        주세요.
+      placeholder: |
+        Given (조건) ...
+        When (동작) ...
+        Then (결과) ...
+    validations:
+      required: true
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope / 범위 제외 사항
+      description: Explicitly state what this request does not include. / 이 요청에
+        포함되지 않는 사항을 명시해 주세요.
+    validations:
+      required: false

@@ -1,0 +1,71 @@
+config:
+  MD001: false
+  MD013: false
+  MD025: false
+  MD036: false
+  MD003: false
+  MD007: false
+  MD022: false
+  MD026: false
+  MD029: false
+  MD030: false
+  MD031: false
+  MD032: false
+  MD033:
+    allowed_elements:
+      - div
+      - br
+      - p
+      - feature-or-system
+      - system-or-domain
+      - feature-id
+      - short-title
+      - feature
+      - topic
+      - policy
+      - domain
+      - related-decision
+      - policy-or-standard
+      - system-or-domain-name
+      - feature-or-stream
+      - data-field
+      - Service
+      - Name
+      - Description
+      - Remaining
+  MD024: false
+  MD034: false
+  MD049: false
+  MD037: false
+  MD040: false
+  MD056: false
+  MD060: false
+
+ignores:
+  - '.claude/'
+  - '.codex/'
+  - '.git/'
+  - '.history/'
+  - '.mypy_cache/'
+  - '.vscode/'
+  - 'node_modules/'
+  - '.sisyphus/'
+  - 'dist/'
+  - 'coverage/'
+  - 'storybook-static/'
+  # Thin-router and provider overlay files intentionally use non-standard @import routing syntax.
+  - 'AGENTS.md'
+  - 'CLAUDE.md'
+  - 'GEMINI.md'
+  - 'docs/00.agent-governance/memory/template.md'
+  # This template carries repeated snippet marker headings by design.
+  - 'docs/99.templates/readme.template.md'
+  # Local-only generated workspace output; not canonical documentation.
+  - '.agent-work/'
+  - '.agent/'
+  - '.agents/'
+  - 'graphify-out/'
+  # Memory file uses intentionally repeated closed-task section headings.
+  - 'docs/00.agent-governance/memory/progress.md'
+  # Execution plan has backtick-in-code-span from embedded regex literal.
+  - 'docs/04.execution/plans/2026-05-18-template-purpose-generated-doc-sync.md'

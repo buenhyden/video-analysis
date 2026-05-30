@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+.pyre/
+.pyright/
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.pytype/
+.pyvenv
+.ruff_cache/
+
+# Node.js/TypeScript/JavaScript
+node_modules/
+dist/
+build/
+.next/
+*.log
+.env
+.env.local
+.env.production
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Testing
+coverage/
+.nyc_output/
+.pytest_cache/
+.vitest/
+tests/.tmp_validate_docs/
+tests/.tmp*/
+tests/tmp*/
+tests/_tmp_*/
+tests/_tmp_*
+
+# IDE
+.vscode/
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.swp
+*.swo
+*.sublime-*
+
+# Universal
+*.tmp
+Thumbs.db
+
+# Project-specific
+uploads/
+examples/.generated/
+.history/
+
+# opencode Skills
+.opencode/skills/
+!.opencode/skills/.gitkeep
+
+.claude/settings.local.json
+.claude/*.local.md
+.agent/
+
+# Git worktrees
+.worktrees/
+.gstack/
+
+
+!graphify-out/graph.html
+!graphify-out/GRAPH_REPORT.md
+!graphify-out/graph.json
+# Graphify is optional generated intelligence for local exploration.
+graphify-out/.graphify*
+
+# optional: commit for shared extraction speed, skip to keep repo small
+graphify-out/cache/
+
+# mtime-based, invalid after git clone - always gitignore this
+graphify-out/manifest.json
+
+# local token tracking, not useful to share
+graphify-out/cost.json
+
+# Transient workspace runtime output — never authoritative state
+_workspace/
+.agent-work/

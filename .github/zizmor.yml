@@ -1,0 +1,12 @@
+# Default stance: audit every workflow. Add suppressions only when they are
+# file-scoped, rule-scoped, and justified in docs/05.operations/policies.
+rules:
+  unpinned-uses:
+    ignore: []
+  template-injection:
+    ignore: []
+  artipacked:
+    ignore: []
+  dangerous-triggers:
+    ignore:
+      - ai-remediation.yml

@@ -1,0 +1,12 @@
+_workspace/
+.agent/
+.claude/
+.codex/
+.github/
+.gstack/
+.rtk/
+.ruff_cache/
+.vscode/
+.worktrees/
+examples/
+node_modules/

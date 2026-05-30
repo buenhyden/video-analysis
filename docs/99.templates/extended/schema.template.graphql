@@ -1,0 +1,26 @@
+# Target: docs/03.specs/<feature-id>/contracts/schema.graphql
+#
+# Usage Guidance:
+# - When to use: For machine-readable GraphQL schema definitions.
+# - Mandatory: types, queries/mutations.
+# - Hard Stop: STOP if GraphQL is not adopted by the parent spec.
+# - Downstream Trigger: Link this schema from the parent spec and API spec.
+# - Evidence Rule: Record schema validation or review evidence in the execution task.
+#
+# Target-relative related documents from generated location:
+# - Parent Spec: ../spec.md
+# - Test Strategy: ../tests.md
+# - API Spec: ../api-spec.md
+#
+schema {
+  query: Query
+}
+
+type Query {
+  example(id: ID!): Example!
+}
+
+type Example {
+  id: ID!
+  status: String!
+}

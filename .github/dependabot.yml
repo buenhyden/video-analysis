@@ -1,0 +1,65 @@
+# ============================================================================
+# [CUSTOMIZE] Dependabot Configuration
+# Enable only ecosystems used by your generated repository.
+# ============================================================================
+# Dependabot Configuration (2025 Q4)
+#
+# Automatically keep dependencies up to date.
+#
+# [CUSTOMIZE] Reviewer Setup
+#
+# [Guide]
+# - Comment out ecosystems you do not use.
+# - Choose interval: daily, weekly, or monthly.
+# ============================================================================
+
+version: 2
+updates:
+  # GitHub Actions
+  # Updates GitHub Actions dependencies.
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    cooldown:
+      default-days: 7
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+    groups:
+      github-actions:
+        patterns:
+          - '*'
+
+  # npm (Node.js/TypeScript)
+  # For Node.js projects. Enable only after package.json and a lockfile exist in the target directory.
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   open-pull-requests-limit: 10
+  #   labels:
+  #     - "dependencies"
+  #     - "javascript"
+  #   reviewers:
+  #     - "your-github-username-or-team"
+  #   groups:
+  #     npm-dependencies:
+  #       patterns:
+  #         - "*"
+
+  # Docker
+  # For Docker images. Enable only after a real Dockerfile is introduced for a shipped service.
+  # - package-ecosystem: "docker"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   labels:
+  #     - "dependencies"
+  #     - "docker"
+  #   reviewers:
+  #     - "your-github-username-or-team"
+  #   groups:
+  #     docker-dependencies:
+  #       patterns:
+  #         - "*"

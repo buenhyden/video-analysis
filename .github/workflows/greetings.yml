@@ -1,0 +1,29 @@
+name: Greeting
+
+on:
+  pull_request:
+    branches: [main, dev]
+    types: [opened]
+  issues:
+    types: [opened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  greeting:
+    permissions:
+      issues: write # 코멘트/라벨 정도만 필요
+      pull-requests: write # PR에 코멘트 남길 때
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/first-interaction@3c71ce730280171fd1cfb57c00c774f8998586f7 # v1.3.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: 'Welcome to the project! Thank you for opening your first issue. We
+            will review it shortly.'
+          pr-message: "Welcome to the project! Thank you for your first Pull Request.
+            We'll review your changes as soon as possible."
