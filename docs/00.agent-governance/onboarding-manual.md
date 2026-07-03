@@ -12,7 +12,7 @@ last-updated: 2026-05-17
 
 ## Overview
 
-`Project-Template` is an audit-ready, language-agnostic template for human and AI collaboration. This manual explains the operating model agents must use before planning or implementation.
+`video-analysis` is an audit-ready, language-agnostic template for human and AI collaboration. This manual explains the operating model agents must use before planning or implementation.
 
 ## 1. Repository Operating Model
 

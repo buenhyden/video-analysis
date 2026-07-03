@@ -14,7 +14,7 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/05.operations/incidents/`는 파생 프로젝트에서 incident records와 postmortems를 보관한다. `main` release branch에서는 Project-Template incident history나 retrospective 자료를 보관하지 않는다.
+`docs/05.operations/incidents/`는 파생 프로젝트에서 incident records와 postmortems를 보관한다. `main` release branch에서는 video-analysis incident history나 retrospective 자료를 보관하지 않는다.
 
 파생 프로젝트에서는 실제 영향, timeline, response, root cause, corrective actions, follow-up ownership을 프로젝트 맥락에 맞게 기록한다.
 

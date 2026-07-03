@@ -27,7 +27,7 @@ The Stage 02 split is intentional:
 - Implementation design belongs in `docs/03.specs/`; work breakdown and
   validation evidence belong in `docs/04.execution/`.
 
-`dev`의 ARD/ADR 문서는 Project-Template architecture contract 또는 archive/reference history다. 파생 프로젝트에서는 intake와 PRD가 준비된 뒤 matching template에서 새 ARD/ADR을 생성한다.
+`dev`의 ARD/ADR 문서는 video-analysis architecture contract 또는 archive/reference history다. 파생 프로젝트에서는 intake와 PRD가 준비된 뒤 matching template에서 새 ARD/ADR을 생성한다.
 
 ## Audience
 

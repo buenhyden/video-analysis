@@ -1,0 +1,220 @@
+[build-system]
+    build-backend="hatchling.build"
+    requires     =["hatchling"]
+
+[project]
+    authors=[{name="hyunyoun", email="chochyjj@gmail.com"}]
+    dependencies=[
+        "aiokafka>=0.12.0",
+        "asgi-correlation-id>=4.3.4",
+        "asyncpg>=0.30.0",
+        "bcrypt==4.0.1",
+        "boto3>=1.41.3",
+        "confluent-kafka>=2.12.2",
+        "edge-tts>=7.2.3",
+        "fastapi[standard]>=0.121.3",
+        "httpx>=0.28.1",
+        "numpy<2.3.0",
+        "opencv-python-headless>=4.12.0.88",
+        "opensearch-py>=3.1.0",
+        "opentelemetry-api>=1.38.0",
+        "opentelemetry-exporter-otlp>=1.38.0",
+        "opentelemetry-instrumentation-fastapi>=0.59b0",
+        "opentelemetry-sdk>=1.38.0",
+        "passlib[bcrypt]>=1.7.4",
+        "protobuf>=6.33.1",
+        "psycopg2-binary>=2.9.11",
+        "pydantic-settings>=2.12.0",
+        "pydantic>=2.12.4",
+        "python-dotenv>=1.2.1",
+        "python-jose[cryptography]>=3.5.0",
+        "python-logging-loki>=0.3.1",
+        "python-multipart>=0.0.20",
+        "redis>=7.1.0",
+        "requests>=2.32.5",
+        "sqlalchemy>=2.0.44",
+        "uvicorn[standard]>=0.38.0",
+        "yt-dlp>=2025.11.12",
+    ]
+    description="Video Portfolio API"
+    name="hy-home-service-1"
+    readme="README.md"
+    requires-python=">=3.13"
+    version="0.1.0"
+
+
+[dependency-groups]
+    dev=[
+        "commitizen>=4.11.0",
+        "detect-secrets>=1.5.0",
+        "docstr-coverage>=2.3.0",
+        "httpx>=0.28.1",
+        "mypy>=1.19.1",
+        "pip-audit>=2.10.0",
+        "pre-commit>=4.5.1",
+        "pytest-asyncio>=1.3.0",
+        "pytest-cov>=7.0.0",
+        "pytest-html>=4.1.1",
+        "pytest-metadata>=3.1.1",
+        "pytest-mock>=3.15.1",
+        "pytest-xdist>=3.8.0",
+        "pytest>=9.0.2",
+        "ruff>=0.14.10",
+    ]
+
+    # --- Tool Settings ---
+
+[tool.uv]
+    managed              =true
+    override-dependencies=["py>=1.11.0"]
+    package              =false
+[tool.ruff]
+    line-length   =120
+    target-version="py313"
+    [tool.ruff.lint]
+        ignore=[]
+        select=[
+            "A",     # flake8-builtins: Avoid shadowing builtins
+            "ARG",   # unused-arguments (미사용 인자)
+            "ASYNC", # 비동기 코드 최적화
+            "B",     # flake8-bugbear: Design problems
+            "BLE",   # flake8-blind-except: 에러의 근본 원인을 숨기는 "조용한 실패"를 방지
+            "C4",    # flake8-comprehensions: Better comprehensions
+            "C90",   # mccabe (복잡도 검사)
+            "D",     # pydocstyle (문서화 규칙)
+            "DTZ",   # flake8-datetimez: 서버 간 시간 불일치 및 데이터베이스 저장 시 발생하는 타임스탬프 오류를 원천 차단
+            "E",     # pycodestyle errors
+            "ERA",   # erradicate (주석 처리된 코드)
+            "F",     # Pyflakes: Logic errors
+            "FA",    # flake8-future-annotations: 타입 체크 성능 향상 및 Mypy Strict Mode와의 호환성을 강화
+            "FBT",   # flake8-boolean-trap: 함수의 인자로 True/False를 직접 넘기는 "불린 트랩"을 방지
+            "FURB",  # 현대적 리팩토링
+            "I",     # isort: Import sorting
+            "LOG",   # 로깅 가이드 준수
+            "N",     # pep8-naming: Standard naming conventions
+            "NPY",   # NumPy 전용 규칙 추가
+            "PERF",  # 성능 최적화
+            "PL",    # Pylint (파이린트 규칙)
+            "PT",    # flake8-pytest-style: Better pytest practices
+            "RET",   # 불필요한 return 문 제거
+            "RUF",   # Ruff-specific rules
+            "S",     # flake8-bandit: Security checks
+            "SIM",   # flake8-simplify: Code simplification
+            "SLOT",  # flake8-slots: 클래스에 __slots__ 사용을 권장
+            "T20",   # flake8-print (프린트문 제한)
+            "TCH",   # flake8-type-checking (타입 체크)
+            "TID",   # flake8-tidy-imports (임포트 정돈)
+            "TRY",   # 잘못된 예외 처리 방지
+            "UP",    # pyupgrade: Upgrade syntax
+            "W",     # pycodestyle Warnings: PEP 8 표준을 더욱 엄격하게 준수
+
+        ]
+
+        [tool.ruff.lint.pydocstyle]
+            # Google 스타일 또는 NumPy 스타일 중 선택 가능
+            convention="google"
+
+        [tool.ruff.lint.per-file-ignores]
+            "app/core/config/settings.py"=["S105", "S106"]
+            "tests/**/*"                 =["S101", "S105", "S106", "S110"]
+
+        [tool.ruff.lint.extend-per-file-ignores]
+            "app/core/config/settings.py"=["S105", "S106"]
+            "tests/**/*"                 =["D100", "D101", "D102", "D103", "D104"]
+
+        [tool.ruff.lint.isort]
+            known-first-party=["app"]
+
+        [tool.ruff.lint.flake8-bugbear]
+            extend-immutable-calls=[
+                "fastapi.Body",
+                "fastapi.Cookie",
+                "fastapi.Depends",
+                "fastapi.Header",
+                "fastapi.Path",
+                "fastapi.Query",
+                "fastapi.Security",
+            ]
+        [tool.ruff.lint.mccabe]
+            max-complexity=10 # 복잡도 임계값 설정 (보통 10 이하 권장)
+
+        [tool.ruff.lint.flake8-tidy-imports]
+            ban-relative-imports="all" # CQRS 아키텍처 보호를 위해 절대 경로 임포트 강제
+
+
+    [tool.ruff.format]
+        indent-style="space"
+        quote-style ="double"
+
+[tool.mypy]
+    # 파이썬 버전 설정
+    python_version="3.13"
+    # 엄격한 타입 체크 활성화
+    strict=true
+    # 사용 중인 라이브러리(pydantic 등)의 타입 힌트 인식 활성화
+    ignore_missing_imports=true
+    # 소스 경로 지정
+    check_untyped_defs    =true              # 타입 힌트 없는 함수 내부 검사
+    disallow_untyped_calls=true              # 타입 정의 없는 함수 호출 금지
+    explicit_package_bases=true
+    mypy_path             ="."
+    plugins               =["pydantic.mypy"]
+    warn_unused_ignores   =false             # 불필요한 # type: ignore 경고
+
+    [[tool.mypy.overrides]]
+        # 테스트 코드에서는 일부 엄격한 규칙 완화 가능
+        allow_untyped_defs=true
+        module            ="tests.*"
+        # 외부 데코레이터(pytest.fixture 등)의 타입 정보가 없어도 허용합니다.
+        disallow_untyped_decorators=false
+
+[tool.structlog]
+    cache_logger_on_first_use=true
+    processors=[
+        "structlog.contextvars.merge_contextvars",
+        "structlog.processors.JSONRenderer()",
+        "structlog.processors.TimeStamper(fmt='iso')",
+        "structlog.processors.add_log_level",
+        "structlog.processors.format_exc_info",
+    ]
+
+[tool.docstr-coverage]
+    badge         ="docs/coverage_badge.svg"
+    exclude       =["build", "docs", "setup.py", "tests"]
+    fail-under    =90                                     # 90% 이상 강제
+    skip-class-def=false
+    skip-file-doc =false
+    skip-init     =true
+    skip-magic    =true
+    verbose       =2
+
+[tool.pydantic-mypy]
+    init_forbid_extra            =true
+    init_typed                   =true
+    warn_required_dynamic_aliases=true
+
+[tool.coverage.run]
+    omit  =["**/__init__.py", "tests/*"]
+    source=["app"]
+
+[tool.coverage.report]
+    fail_under  =80   # 커버리지가 80% 미만이면 에러 발생 (품질 강제)
+    show_missing=true
+
+[tool.commitizen]
+    major_version_zero      =true
+    name                    ="cz_conventional_commits"
+    tag_format              ="v$version"
+    update_changelog_on_bump=true
+    version_provider        ="pep621"
+    version_scheme          ="semver"
+
+[tool.pytest.ini_options]
+    # -n auto: 코어 수에 맞춰 병렬 실행
+    # --html=report.html: 결과 보고서 생성
+    # --self-contained-html: CSS를 포함한 단일 파일 생성
+    addopts  ="--ignore=tests/load/ --cov=app --cov-report=term-missing -n auto --html=report.html --self-contained-html"
+    testpaths=["tests"]
+    # 비동기 테스트 모드 자동 설정 (Strict 모드 권장)
+    asyncio_default_fixture_loop_scope="function"
+    asyncio_mode                      ="auto"

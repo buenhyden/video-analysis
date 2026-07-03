@@ -12,11 +12,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/01.requirements/`는 이 `Project-Template`을 기반으로 새 프로젝트를 시작할 때 product/software 요구사항을 작성하는 stage이다. `main` release branch에서는 실제 PRD나 Project-Template 수행 이력을 보관하지 않고, 새 프로젝트가 수정해서 사용할 README guide만 유지한다.
+`docs/01.requirements/`는 이 `video-analysis`을 기반으로 새 프로젝트를 시작할 때 product/software 요구사항을 작성하는 stage이다. `main` release branch에서는 실제 PRD나 video-analysis 수행 이력을 보관하지 않고, 새 프로젝트가 수정해서 사용할 README guide만 유지한다.
 
 파생 프로젝트에서는 project initialization intake를 완료한 뒤 이 폴더에 프로젝트별 PRD와 요구사항 문서를 생성한다. 생성된 문서는 제품 목적, 대상 사용자, 핵심 기능, 성공 기준, acceptance criteria, non-goals, testability를 프로젝트 맥락에 맞게 채워야 한다.
 
-`dev`에 남아 있는 non-README PRD는 Project-Template 거버넌스 요구사항을 설명하는 `active-template-contract`다. 새 프로젝트 seed는 이 README skeleton과 bootstrap이 생성하는 draft `YYYY-MM-DD-project-intake-prd.md`뿐이다.
+`dev`에 남아 있는 non-README PRD는 video-analysis 거버넌스 요구사항을 설명하는 `active-template-contract`다. 새 프로젝트 seed는 이 README skeleton과 bootstrap이 생성하는 draft `YYYY-MM-DD-project-intake-prd.md`뿐이다.
 
 ## Audience
 
@@ -38,7 +38,7 @@ last-updated: 2026-05-21
 
 ### Out of Scope
 
-- Project-Template 자체 개발 이력, 이전 PRD, 완료된 task evidence
+- video-analysis 자체 개발 이력, 이전 PRD, 완료된 task evidence
 - architecture requirements, ADR, technical spec, implementation plan
 - stack이 확정되기 전의 framework, runtime, deployment 세부 결정
 - 임시 agent scratchpad 또는 local-only handoff 자료
@@ -114,7 +114,7 @@ cp docs/99.templates/prd.template.md docs/01.requirements/YYYY-MM-DD-project-prd
 
 | File | Type | Summary | Status | Last Modified |
 | --- | --- | --- | --- | --- |
-| _No documents yet_ | — | This stage has been reset for new project use. | — | — |
+| [2026-05-30-project-intake-prd.md](./2026-05-30-project-intake-prd.md) | md | Project Initialization Intake | draft | 2026-05-30 |
 
 ## Related Documents
 

@@ -20,7 +20,7 @@ folders. Although this path is `docs/04.execution/`, its subfolders preserve
 the stage-gate workflow boundary: `plans/` stores Stage 05 execution plans and
 `tasks/` stores Stage 06 task evidence.
 
-`dev` may contain completed Project-Template plans and task evidence for
+`dev` may contain completed video-analysis plans and task evidence for
 traceability. Those records are `template-maintenance`, not execution seeds for
 new projects. `main` keeps only the README skeleton guides.
 
@@ -43,7 +43,7 @@ new projects. `main` keeps only the README skeleton guides.
 - Product requirements or architecture decisions
 - Long-lived operations procedures
 - Incident postmortems
-- Project-Template development history
+- video-analysis development history
 
 ## Structure
 
@@ -98,7 +98,7 @@ cp docs/99.templates/task.template.md docs/04.execution/tasks/YYYY-MM-DD-impleme
 
 - Do not create execution records before intake and upstream context exist.
 - Do not mark work complete without validation evidence.
-- Do not keep Project-Template task history in the release skeleton.
+- Do not keep video-analysis task history in the release skeleton.
 - In a derived project, rewrite skeleton rows to match actual project work.
 
 ## AI Execution Checklist

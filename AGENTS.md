@@ -5,7 +5,7 @@
 
 ## Workspace Contract
 
-`Project-Template` is a language-agnostic, AI-native project template for autonomous SDLC. It provides reusable governance, documentation, workflow, CI/CD, quality-gate, template, and operations structure without adding a default application stack.
+`video-analysis` is a language-agnostic, AI-native project template for autonomous SDLC. It provides reusable governance, documentation, workflow, CI/CD, quality-gate, template, and operations structure without adding a default application stack.
 
 ## Non-Negotiable Rules
 

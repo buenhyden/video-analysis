@@ -18,7 +18,7 @@ last-updated: 2026-05-21
 
 파생 프로젝트에서는 intake, PRD, stack 결정을 바탕으로 quality attributes, C4 context, deployment baseline, data boundaries, security assumptions를 프로젝트에 맞게 작성한다.
 
-아래 `Documents` 표의 existing ARD와 research package는 `dev` 유지용 Project-Template architecture history다. 새 프로젝트에서는 이 문서를 복사하지 않고 `ard.template.md`에서 새 draft ARD를 만든다.
+아래 `Documents` 표의 existing ARD와 research package는 `dev` 유지용 video-analysis architecture history다. 새 프로젝트에서는 이 문서를 복사하지 않고 `ard.template.md`에서 새 draft ARD를 만든다.
 
 ## Audience
 

@@ -937,7 +937,7 @@ def validate_root_readme_contract() -> list[str]:
             "README.md: missing root README section `## Related Documents` or `## Related References`"
         )
     if (
-        "Project-Template" in text
+        "video-analysis" in text
         and "docs/99.templates/readme.template.md" not in text
     ):
         errors.append(
@@ -1572,13 +1572,13 @@ def validate_sdlc_workflow_contract() -> list[str]:
             errors.append(f"{rel}: missing boundary marker `{marker}`")
     if EXTERNAL_SYSTEM_SDLC_WORKFLOW.exists():
         errors.append(
-            "00_System/sdlc-workflow.md: duplicate workflow authority is not allowed in Project-Template; "
+            "00_System/sdlc-workflow.md: duplicate workflow authority is not allowed in video-analysis; "
             "use docs/00.agent-governance/sdlc-workflow.md"
         )
     if EXTERNAL_DOT_AGENT_GOVERNANCE_SDLC_WORKFLOW.exists():
         errors.append(
             "00.agent-governance/sdlc-workflow.md: duplicate workflow authority is not allowed in "
-            "Project-Template; use docs/00.agent-governance/sdlc-workflow.md"
+            "video-analysis; use docs/00.agent-governance/sdlc-workflow.md"
         )
     return errors
 

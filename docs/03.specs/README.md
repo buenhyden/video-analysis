@@ -22,7 +22,7 @@ A spec translates approved product requirements, architecture requirements, and
 architecture decisions into precise component contracts, sequence/state diagrams,
 TDD readiness maps, and agent behavior contracts before execution planning begins.
 
-The spec packages listed on `dev` are completed Project-Template remediation
+The spec packages listed on `dev` are completed video-analysis remediation
 specs. They are not examples or seed specs for derived projects; `main` keeps
 this folder as a README skeleton until a derived project creates its own spec
 package from `spec.template.md` and `tests.template.md`.

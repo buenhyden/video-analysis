@@ -14,11 +14,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/90.references/`는 파생 프로젝트에서 factual reference, external system notes, research summaries, integration references를 보관하는 stage이다. `main` release branch에서는 generated navigation, intelligence dumps, Project-Template history, old reference documents를 보관하지 않는다.
+`docs/90.references/`는 파생 프로젝트에서 factual reference, external system notes, research summaries, integration references를 보관하는 stage이다. `main` release branch에서는 generated navigation, intelligence dumps, video-analysis history, old reference documents를 보관하지 않는다.
 
 파생 프로젝트에서는 product/software intake와 stack 선택 후 필요한 reference documents를 생성한다. Reference material은 정책이나 실행 지시의 source of truth가 아니며, governing docs는 Stage 00-05에 둔다.
 
-아래 reference rows는 `dev`에서 유지하는 Project-Template contract 또는 archive/reference history다. 새 프로젝트에서는 필요한 사실 근거만 `reference.template.md`에서 새로 작성한다.
+아래 reference rows는 `dev`에서 유지하는 video-analysis contract 또는 archive/reference history다. 새 프로젝트에서는 필요한 사실 근거만 `reference.template.md`에서 새로 작성한다.
 
 ## Audience
 
@@ -115,7 +115,7 @@ project relevance.
 
 ## AI Authoring Guidance
 
-- Do not place generated wiki indexes or Project-Template intelligence history here.
+- Do not place generated wiki indexes or video-analysis intelligence history here.
 - Do not treat reference notes as policy.
 - In a derived project, rewrite skeleton rows to match actual reference materials.
 

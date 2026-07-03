@@ -14,11 +14,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/04.execution/tasks/`는 파생 프로젝트에서 실제 구현, 검증, evidence를 기록하는 위치이다. `main` release branch에서는 기존 Project-Template task history를 보관하지 않는다.
+`docs/04.execution/tasks/`는 파생 프로젝트에서 실제 구현, 검증, evidence를 기록하는 위치이다. `main` release branch에서는 기존 video-analysis task history를 보관하지 않는다.
 
 파생 프로젝트에서는 plan, spec, implementation change, validation output을 연결해 task 문서를 작성한다.
 
-아래 task rows는 Project-Template 유지보수 evidence다. 새 프로젝트에서는 이 completed task evidence를 복사하지 않고 `task.template.md`에서 새 draft task record를 만든다.
+아래 task rows는 video-analysis 유지보수 evidence다. 새 프로젝트에서는 이 completed task evidence를 복사하지 않고 `task.template.md`에서 새 draft task record를 만든다.
 
 ## Audience
 
@@ -97,7 +97,7 @@ cp docs/99.templates/task.template.md docs/04.execution/tasks/YYYY-MM-DD-impleme
 ## AI Authoring Guidance
 
 - Do not mark a task complete without evidence.
-- Do not preserve Project-Template task history in a release skeleton.
+- Do not preserve video-analysis task history in a release skeleton.
 - Keep task rows aligned with actual files.
 - In a derived project, rewrite skeleton rows to match real project execution.
 

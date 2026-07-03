@@ -1,4 +1,4 @@
-site_name: Project-Template Documentation
+site_name: video-analysis Documentation
 site_description: Language-agnostic AI-native project governance template with no default application stack
 theme:
   name: material

@@ -21,7 +21,7 @@ matrix. These folders do not imply that the base template ships a production
 application stack; derived projects create operational artifacts only when
 stable behavior, policy, runbook, or incident evidence exists.
 
-`dev` may retain Project-Template onboarding guides, policy/SLO history, or
+`dev` may retain video-analysis onboarding guides, policy/SLO history, or
 operations evidence for traceability. Those records are not default operational
 artifacts for derived projects; `main` keeps this area as skeleton guidance.
 
@@ -115,7 +115,7 @@ cp docs/99.templates/slo.template.md docs/05.operations/policies/YYYY-MM-DD-serv
 ## AI Authoring Guidance
 
 - Do not create SLO, runbook, or release policy assumptions before operations intake is complete.
-- Do not preserve Project-Template operations history on `main`.
+- Do not preserve video-analysis operations history on `main`.
 - Keep operational procedures executable and owner-aware.
 - In a derived project, rewrite skeleton guidance to match the actual environment and release model.
 

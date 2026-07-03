@@ -14,13 +14,13 @@ last-updated: 2026-05-21
 
 ## Overview
 
-이 허브는 새 프로젝트를 시작하기 위한 `Project-Template` workspace의 공식 문서 진입점이다. `docs/` 트리는 `00.agent-governance`, `01.requirements`, `02.architecture`, `03.specs`, `04.execution`, `05.operations`, `90.references`, `99.templates`의 8개 최상위 폴더만 허용한다.
+이 허브는 새 프로젝트를 시작하기 위한 `video-analysis` workspace의 공식 문서 진입점이다. `docs/` 트리는 `00.agent-governance`, `01.requirements`, `02.architecture`, `03.specs`, `04.execution`, `05.operations`, `90.references`, `99.templates`의 8개 최상위 폴더만 허용한다.
 
 현재 템플릿은 특정 언어나 프레임워크를 강제하지 않는다. 구현 스택 문서는 파생 프로젝트 intake 이후에만 생성한다. `main` release branch에서는 `docs/01`, `02`, `03`, `04`, `05`, `90`에 실제 프로젝트 문서나 템플릿 개발 이력을 남기지 않고 README skeleton guide만 유지한다.
 
 새 프로젝트는 이 skeleton을 그대로 보존하는 것이 아니라, product/software와 stack intake를 완료한 뒤 해당 stage folder의 README와 문서 파일을 실제 프로젝트 목적, 구조, 스택, 운영 기준에 맞게 수정해야 한다. Stage README는 `docs/99.templates/readme.template.md`의 Base Structure를 기반으로 작성한다.
 
-`dev` branch의 `docs/01.requirements`부터 `docs/90.references`까지에는 Project-Template 자체의 maintenance history가 남아 있을 수 있다. 이 문서들은 새 프로젝트 seed가 아니며, release-template 기준인 `main`에서는 해당 stage folder가 README skeleton guide만 유지해야 한다.
+`dev` branch의 `docs/01.requirements`부터 `docs/90.references`까지에는 video-analysis 자체의 maintenance history가 남아 있을 수 있다. 이 문서들은 새 프로젝트 seed가 아니며, release-template 기준인 `main`에서는 해당 stage folder가 README skeleton guide만 유지해야 한다.
 
 최근 GitHub hardening은 repository automation과 QA gate를 분리하면서 workflow drift를 명시적으로 드러낸다. branch, workflow-run, scheduled, tag-triggered, write-permission workflow는 concurrency를 요구한다. CodeQL GitHub Actions 분석은 stack-neutral 상태를 유지한다. release changelog automation은 `main` 대상 review PR을 생성하거나 갱신한다. `.github/ABOUT.md`와 `.github/SECURITY.md`는 operational metadata로 검증된다.
 
@@ -46,7 +46,7 @@ last-updated: 2026-05-21
 - 파생 프로젝트의 application stack documentation.
 - 이 source template에 속하지 않는 product-specific requirement나 implementation record.
 - `docs/00.agent-governance/`가 소유하는 runtime policy detail.
-- `main` release skeleton에 Project-Template 수행 이력이나 generated reference index를 보존하는 행위.
+- `main` release skeleton에 video-analysis 수행 이력이나 generated reference index를 보존하는 행위.
 
 ## Structure
 

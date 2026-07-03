@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# Check for merge conflict markers
+echo "🔍 Checking for merge conflicts..."
+if git diff --cached --name-only | xargs grep -l "^<<<<<<< \|^=======$\|^>>>>>>> " 2>/dev/null; then
+  echo "❌ Merge conflict markers detected!"
+  echo "Please resolve all conflicts before committing."
+  exit 1
+fi
+
+echo "✅ No merge conflicts detected"
+
+# Run lint-staged
+npx lint-staged

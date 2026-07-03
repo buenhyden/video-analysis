@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${REGISTRY:-ghcr.io}/${IMAGE_NAME:-buenhyden/hy-home.frontend}:${IMAGE_TAG:-latest}
+    container_name: hy-home-frontend
+    restart: always
+    ports:
+      - '${PORT:-3000}:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge

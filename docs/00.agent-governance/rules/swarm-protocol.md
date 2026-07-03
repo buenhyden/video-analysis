@@ -1,6 +1,6 @@
 # Swarm Protocol: Multi-Agent Collaboration
 
-This protocol defines how multiple AI agents (Architect, Developer, QA, PM) collaborate sequentially to solve complex tasks within the `Project-Template` ecosystem.
+This protocol defines how multiple AI agents (Architect, Developer, QA, PM) collaborate sequentially to solve complex tasks within the `video-analysis` ecosystem.
 
 ## 1. Core Philosophy
 - **Sequential Baton-Passing**: One agent finishes their "phase" and hands off a formal artifact to the next agent.

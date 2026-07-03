@@ -10,12 +10,12 @@ last-updated: 2026-05-22
 
 # Template Document Lifecycle and Ownership
 
-This rule defines how Project-Template separates reusable template assets from
+This rule defines how video-analysis separates reusable template assets from
 documents that belong to a newly derived project.
 
 ## Purpose
 
-Project-Template is a reusable starting workspace. It provides governance,
+video-analysis is a reusable starting workspace. It provides governance,
 documentation structure, templates, validation, local agent runtime defaults, and
 safe bootstrap automation. It does not provide a default product, application
 stack, deployment target, SLO, or completed project documentation.
@@ -25,7 +25,7 @@ stack, deployment target, SLO, or completed project documentation.
 | Label | Meaning | Allowed in a newly derived project |
 | --- | --- | --- |
 | `project-seed` | Minimal README skeleton or bootstrap-generated draft PRD seed with TODOs and no completed decisions. | Yes, only stage README skeletons plus the bootstrap PRD seed after intake. |
-| `template-maintenance` | Evidence or plans for maintaining Project-Template itself. | No. Keep on `dev` or move to Stage 00 governance. |
+| `template-maintenance` | Evidence or plans for maintaining video-analysis itself. | No. Keep on `dev` or move to Stage 00 governance. |
 | `example` | Reusable example clearly marked as non-authoritative. | Optional, only under an examples or reference area. |
 | `archive/reference` | Historical or supporting reference material. | Optional, only if clearly marked and linked as reference. |
 | `remove-candidate` | Duplicated, stale, unsafe, or no longer useful content. | No. Remove only after reference search and migration note. |
@@ -37,7 +37,7 @@ stack, deployment target, SLO, or completed project documentation.
 - On `main`, `docs/01.requirements/`, `docs/02.architecture/`,
   `docs/03.specs/`, `docs/04.execution/`, `docs/05.operations/`, and
   `docs/90.references/` must contain README skeleton guides only.
-- `dev` may retain Project-Template maintenance history for review and
+- `dev` may retain video-analysis maintenance history for review and
   traceability.
 - A newly derived project must not inherit `dev` maintenance history unless the
   maintainer intentionally keeps it with `--keep-template-history`.
@@ -70,7 +70,7 @@ project:
 | --- | --- | --- |
 | Stage README skeletons | Yes | Rewrite overview, scope, and Documents rows for the actual project as content appears. |
 | Bootstrap PRD intake seed | Yes, after intake | Replace TODOs before using it as an upstream gate. |
-| Project-Template PRDs, ARDs, ADRs, specs, plans, tasks, SLOs, onboarding guides, and references on `dev` | No by default | Omit from `main` release skeleton and derived projects unless `--keep-template-history` is intentional. |
+| video-analysis PRDs, ARDs, ADRs, specs, plans, tasks, SLOs, onboarding guides, and references on `dev` | No by default | Omit from `main` release skeleton and derived projects unless `--keep-template-history` is intentional. |
 | Stage 00 governance and `docs/99.templates/**` | Yes | Keep as reusable defaults; update only through governance/template maintenance. |
 | `.claude/**` and `.codex/agents/*.toml` | Yes | Keep `.claude/**` canonical and `.codex/**` compatibility-only. |
 | Local-only runtime or helper output | No | Do not commit or reuse blindly; regenerate locally if needed. |
@@ -103,7 +103,7 @@ template only when their stage gate is reached.
 ## Current Dev Inventory Classification
 
 On the `main` release-template skeleton, this section intentionally contains no
-concrete Project-Template maintenance-history path table. The detailed inventory
+concrete video-analysis maintenance-history path table. The detailed inventory
 lives on `dev`, where those files exist and can be reviewed before the next
 release-prep branch is cut.
 
@@ -230,7 +230,7 @@ unless they are intentionally transformed into README skeleton guidance.
 
 - Do not leave template-maintenance documents in a newly derived project without
   explicit `--keep-template-history`.
-- Do not promote a completed Project-Template plan, task, spec, or reference as
+- Do not promote a completed video-analysis plan, task, spec, or reference as
   a new project's active requirement, architecture, operation, or reference.
 - Do not create stack-specific seed documents before the intake declares a stack.
 

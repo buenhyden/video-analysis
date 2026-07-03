@@ -1,7 +1,7 @@
 # Agent Bootstrap Governance (March 2026)
 
 > [!NOTE]
-> `Project-Template` is a spec-driven repository. New derived projects must complete project initialization intake before PRD, architecture, spec, plan, task, operations, or reference documents are authored.
+> `video-analysis` is a spec-driven repository. New derived projects must complete project initialization intake before PRD, architecture, spec, plan, task, operations, or reference documents are authored.
 
 This file is the mandatory entry point for all agent sessions.
 
@@ -13,7 +13,7 @@ This file is the mandatory entry point for all agent sessions.
 4. Activate persona/scope using `persona.md` + `scopes/*.md`.
 5. Resolve stage ownership and procedural flow using `stage-gate-matrix.md` and `sdlc-procedure.md`.
 6. Apply the project initialization gate in `project-initialization-intake.md`.
-7. Classify inherited Project-Template documents with `template-document-lifecycle.md` before reusing, moving, or deleting them.
+7. Classify inherited video-analysis documents with `template-document-lifecycle.md` before reusing, moving, or deleting them.
 8. Load `environment-readiness.md` before changing setup, validation prerequisites, local tooling assumptions, or runtime readiness policy.
 9. Select the required document template from `docs/99.templates/` before any stage authoring.
 10. Adopt the **Git Workflow** from `git-workflow.md`.
@@ -66,7 +66,7 @@ Use `stage-gate-matrix.md` as the single source for:
 
 - Do not start implementation without PRD and Spec anchors.
 - Do not start new-project PRD, ARD, Spec, Plan, Task, Operations, or Reference authoring until product/software and stack intake is complete.
-- Do not reuse Project-Template maintenance documents as active derived-project content without classification through `template-document-lifecycle.md`.
+- Do not reuse video-analysis maintenance documents as active derived-project content without classification through `template-document-lifecycle.md`.
 - Do not treat optional or stack-specific tools as required before `environment-readiness.md` classification and project intake justify them.
 - Do not mutate local environments, install tools, or write dotfiles from `bash scripts/ws.sh setup`.
 - Do not create or update non-README documents under `docs/01.requirements/`, `docs/02.architecture/`, `docs/03.specs/`, `docs/04.execution/`, `docs/05.operations/`, or `docs/90.references/` without the matching `docs/99.templates/` contract.

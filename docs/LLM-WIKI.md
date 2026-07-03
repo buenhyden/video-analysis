@@ -1,4 +1,4 @@
-# LLM-Wiki: Project-Template SDLC Governance
+# LLM-Wiki: video-analysis SDLC Governance
 
 > **AI Agent Context File**: This is the canonical reference for workspace policies. This document synthesizes the entire workspace structure, SDLC implementation details, and governance constraints into a single, high-density format optimized for LLMs. Read this file to understand how to operate within this repository.
 >
@@ -66,7 +66,7 @@ Derived projects must complete product/software and stack intake first, then rew
 ## 3. DESIGN.md (Single Source of Truth)
 
 - **SSOT**: Root `DESIGN.md` is the SOT for all UI/Frontend/Mobile/App visual design.
-- **Project Rule**: For the `Project-Template` itself, `version` and `name` are `<string>`.
+- **Project Rule**: For the `video-analysis` itself, `version` and `name` are `<string>`.
 - **AI HARD STOP**: If `version` or `name` is `<string>`, **HALT** any UI/frontend work (Stage 04/06) and request design system definition.
 
 ## 4. Agent Governance & Runtime

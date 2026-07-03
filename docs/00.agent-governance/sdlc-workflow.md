@@ -20,7 +20,7 @@ This document visualizes the human-agent collaboration loop and the review point
 
 It is a workflow reference, not active task memory and not a policy change history. Use `docs/00.agent-governance/memory/progress.md` for current progress and handoff state, `docs/00.agent-governance/memory/methodology.md` for active methodology state, and `docs/00.agent-governance/policy-change-log.md` for versioned governance changes.
 
-Project-Template does not use `00_System/sdlc-workflow.md` as a governance surface. If a derived or Vault-style workspace has a `00_System/sdlc-workflow.md`, it is downstream workspace documentation and must not override this Stage 00 workflow reference.
+video-analysis does not use `00_System/sdlc-workflow.md` as a governance surface. If a derived or Vault-style workspace has a `00_System/sdlc-workflow.md`, it is downstream workspace documentation and must not override this Stage 00 workflow reference.
 
 `00.agent-governance/sdlc-workflow.md` without a `docs/` prefix is permitted only as docs-relative shorthand for `docs/00.agent-governance/sdlc-workflow.md`. Do not create a root-level `00.agent-governance/` directory or use it as a separate workflow authority.
 
@@ -50,7 +50,7 @@ Project-Template does not use `00_System/sdlc-workflow.md` as a governance surfa
 | `memory/methodology.md` | Active methodology choice and run-state memory. | Methodology taxonomy, hard stops, or visual workflow. |
 | `policy-change-log.md` | Versioned governance, SDLC protocol, runtime contract, and validator changes. | Current progress, methodology state, or visual flow description. |
 | `00.agent-governance/sdlc-workflow.md` | Docs-relative shorthand only when clearly referring to `docs/00.agent-governance/sdlc-workflow.md`. | Root-level workflow, policy, progress, methodology, or memory records. |
-| `00_System/sdlc-workflow.md` | No authority in Project-Template. | Project-Template workflow, policy, progress, methodology, or memory records. |
+| `00_System/sdlc-workflow.md` | No authority in video-analysis. | video-analysis workflow, policy, progress, methodology, or memory records. |
 | `_workspace/**` | Transient runtime coordination or generated output. | Any authoritative workflow, progress, policy, methodology, or memory record. |
 
 ## Workflow Diagram

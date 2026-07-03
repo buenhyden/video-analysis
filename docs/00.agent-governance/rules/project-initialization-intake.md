@@ -57,7 +57,7 @@ these folders contain README skeleton guides only:
 - `docs/05.operations/`
 - `docs/90.references/`
 
-Project-Template development history, completed PRDs, ARDs, ADRs, specs, plans,
+video-analysis development history, completed PRDs, ARDs, ADRs, specs, plans,
 tasks, operational guides, SLOs, generated intelligence, and reference artifacts
 belong on `dev` or another maintenance branch, not in the `main` release skeleton.
 
@@ -77,7 +77,7 @@ belong on `dev` or another maintenance branch, not in the `main` release skeleto
 - Stop before authoring or modifying project stage documents if the matching `docs/99.templates/` contract has not been loaded.
 - Stop if a stack-specific rule, command, CI target, or framework is introduced before it appears in the intake.
 - Stop if `main` contains project-history documents in the skeleton-only folders above.
-- Stop if a Project-Template maintenance document is reused as active derived-project content without classification through `template-document-lifecycle.md`.
+- Stop if a video-analysis maintenance document is reused as active derived-project content without classification through `template-document-lifecycle.md`.
 
 ## Related Documents
 
@@ -101,7 +101,7 @@ belong on `dev` or another maintenance branch, not in the `main` release skeleto
 ## Constraints
 
 - Do not infer a stack that the intake did not declare.
-- Do not restore Project-Template history documents into the `main` release skeleton.
+- Do not restore video-analysis history documents into the `main` release skeleton.
 - Do not treat bootstrap-generated TODO rows as approved requirements.
 - Do not restore `.codex/hooks*` or `.agents/skills/**` as reusable runtime policy.
 

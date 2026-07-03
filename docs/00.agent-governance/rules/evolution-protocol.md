@@ -1,6 +1,6 @@
 # Evolution Protocol: AI-Driven Improvements
 
-This protocol defines how the `Project-Template` evolves using automated insights from the Intelligence Hub.
+This protocol defines how the `video-analysis` evolves using automated insights from the Intelligence Hub.
 
 ## 1. Triggering Evolution
 - Any agent or user can create a Stage 05 plan to propose governance or architecture evolution.

@@ -14,11 +14,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/05.operations/policies/`는 파생 프로젝트의 operational controls, SLO, release policy, resilience policy를 보관한다. `main` release branch에서는 Project-Template SLO나 운영 정책 이력을 보관하지 않는다.
+`docs/05.operations/policies/`는 파생 프로젝트의 operational controls, SLO, release policy, resilience policy를 보관한다. `main` release branch에서는 video-analysis SLO나 운영 정책 이력을 보관하지 않는다.
 
 파생 프로젝트에서는 operations intake, architecture decisions, deployment target, observability baseline에 맞게 정책 문서를 작성한다.
 
-아래 정책 rows는 Project-Template 운영 기준과 evidence package history다. 새 프로젝트의 SLO나 resilience policy는 intake가 필요성을 선언한 뒤 새로 작성한다.
+아래 정책 rows는 video-analysis 운영 기준과 evidence package history다. 새 프로젝트의 SLO나 resilience policy는 intake가 필요성을 선언한 뒤 새로 작성한다.
 
 ## Audience
 

@@ -120,7 +120,7 @@ def build_repo_map(files: list[Path]) -> dict[str, object]:
 def write_mermaid(repo_map: dict[str, object]) -> None:
     groups = repo_map["groups"]
     assert isinstance(groups, dict)
-    lines = ["flowchart TD", "  repo[Project-Template]"]
+    lines = ["flowchart TD", "  repo[video-analysis]"]
     for name in TOP_LEVEL_ORDER:
         matching = [key for key in groups if key == name or key.startswith(name + "/")]
         if not matching:

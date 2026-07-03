@@ -1,6 +1,6 @@
 # Git Workflow Governance (May 2026)
 
-> This document defines the mandatory Git and PR strategy for all agents in the `Project-Template` workspace.
+> This document defines the mandatory Git and PR strategy for all agents in the `video-analysis` workspace.
 
 ## Role definition
 

@@ -1,6 +1,6 @@
 # CI/CD Workflow Governance (May 2026)
 
-> This document defines the branch-based CI/CD policy for the `Project-Template` workspace.
+> This document defines the branch-based CI/CD policy for the `video-analysis` workspace.
 
 ## Role definition
 
@@ -10,7 +10,7 @@ All AI agents and human contributors MUST treat GitHub Actions as governed infra
 
 1. **Feature and fix validation**
    - Pull requests targeting `dev` MUST run template governance, lint/test/build checks that are available for the changed platform, and security checks where configured.
-   - Every pull request targeting `dev` or `main` MUST pass a mandatory 90% line test coverage gate once an active implementation stack exists. The base `Project-Template` release skeleton may skip coverage when no stack manifest is present. Missing, unparseable, or below-threshold coverage artifacts block the PR after a stack is declared.
+   - Every pull request targeting `dev` or `main` MUST pass a mandatory 90% line test coverage gate once an active implementation stack exists. The base `video-analysis` release skeleton may skip coverage when no stack manifest is present. Missing, unparseable, or below-threshold coverage artifacts block the PR after a stack is declared.
    - Feature branches SHOULD NOT deploy to shared environments.
 2. **Development integration**
    - Pushes to `dev` represent integration state and MUST run release-readiness checks.

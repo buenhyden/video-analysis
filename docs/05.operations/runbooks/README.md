@@ -14,7 +14,7 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/05.operations/runbooks/`는 파생 프로젝트에서 반복 가능한 운영 절차를 보관한다. `main` release branch에서는 Project-Template-specific runbook history를 보관하지 않는다.
+`docs/05.operations/runbooks/`는 파생 프로젝트에서 반복 가능한 운영 절차를 보관한다. `main` release branch에서는 video-analysis-specific runbook history를 보관하지 않는다.
 
 파생 프로젝트에서는 실제 environments, deployment target, observability tools, escalation path에 맞게 runbook 절차를 작성한다.
 
@@ -98,7 +98,7 @@ cp docs/99.templates/runbook.template.md docs/05.operations/runbooks/deploy-serv
 ## AI Authoring Guidance
 
 - Do not invent tools, dashboards, or deployment targets before intake confirms them.
-- Do not keep Project-Template runbook history on `main`.
+- Do not keep video-analysis runbook history on `main`.
 - In a derived project, align runbook steps with real operational tooling.
 
 ## AI Execution Checklist

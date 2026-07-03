@@ -14,11 +14,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/02.architecture/decisions/`는 파생 프로젝트에서 durable architecture decisions를 기록하는 위치이다. `main` release branch에서는 이전 Project-Template ADR이나 decision history를 보관하지 않는다.
+`docs/02.architecture/decisions/`는 파생 프로젝트에서 durable architecture decisions를 기록하는 위치이다. `main` release branch에서는 이전 video-analysis ADR이나 decision history를 보관하지 않는다.
 
 파생 프로젝트에서는 approved requirements, ARD, stack intake를 바탕으로 decision context, alternatives, chosen option, consequences를 프로젝트에 맞게 작성한다.
 
-아래 ADR rows는 Project-Template의 template/runtime decision history다. 새 프로젝트에서는 번호를 재사용하거나 복사하지 않고, 실제 decision trigger가 있을 때 새 ADR을 생성한다.
+아래 ADR rows는 video-analysis의 template/runtime decision history다. 새 프로젝트에서는 번호를 재사용하거나 복사하지 않고, 실제 decision trigger가 있을 때 새 ADR을 생성한다.
 
 ## Audience
 

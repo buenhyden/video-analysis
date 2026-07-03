@@ -1,0 +1,22 @@
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev
+    image: python.fastapi:latest
+    hostname: fastapi
+    container_name: fastapi
+    restart: unless-stopped
+    working_dir: /app
+    expose:
+      - ${DEFAULT_PORT}
+    ports:
+      - ${DEFAULT_HOST_PORT}:${DEFAULT_PORT}
+    networks:
+      - project_net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"

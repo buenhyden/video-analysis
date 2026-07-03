@@ -1,4 +1,4 @@
-# Project-Template
+# video-analysis
 
 > 언어와 프레임워크를 강제하지 않는 AI-native 프로젝트 거버넌스 템플릿.
 
@@ -11,7 +11,7 @@
 
 ## Overview
 
-`Project-Template`은 새 프로젝트가 복제해 사용할 수 있는 language-agnostic AI-native governance template workspace입니다. 기본 앱 스택을 제공하지 않고, 문서 구조, AI agent instruction surface, Git Flow, CI/CD 품질 게이트, 템플릿, 운영 절차를 표준화합니다.
+`video-analysis`은 새 프로젝트가 복제해 사용할 수 있는 language-agnostic AI-native governance template workspace입니다. 기본 앱 스택을 제공하지 않고, 문서 구조, AI agent instruction surface, Git Flow, CI/CD 품질 게이트, 템플릿, 운영 절차를 표준화합니다.
 
 프레임워크별 구현은 파생 프로젝트가 선택한 뒤 추가합니다. 이전 fullstack starter 자료는 현재 baseline에서 제거되었으며, 활성 루트 템플릿의 필수 구조가 아닙니다.
 
@@ -61,7 +61,7 @@
 - **README basis**: release skeleton README files under `docs/01`, `02`, `03`, `04`, `05`, and `90` follow [docs/99.templates/readme.template.md](./docs/99.templates/readme.template.md).
 - **Derived baseline**: provide product/software and stack intake, run `bash scripts/ws.sh bootstrap --dry-run ...` first, then `bash scripts/ws.sh validate-derived` after metadata and design placeholders are initialized.
 - **Environment readiness**: run `bash scripts/ws.sh setup` to report core, optional, and stack-conditional local prerequisites. The command is report-only and must not install tools or mutate local configuration.
-- **Dev maintenance history**: `dev` may contain Project-Template PRDs, ARDs, ADRs, specs, plans, tasks, SLOs, and references that document template maintenance work. These files are evidence for maintaining the template, not seed content for new projects.
+- **Dev maintenance history**: `dev` may contain video-analysis PRDs, ARDs, ADRs, specs, plans, tasks, SLOs, and references that document template maintenance work. These files are evidence for maintaining the template, not seed content for new projects.
 - **Runtime boundary**: `.claude/**` is reusable runtime configuration. `.codex/agents/*.toml` is synchronized Codex compatibility metadata. `.codex/hooks*`, `.agents/skills/**`, `.claude/settings.local.json`, `_workspace/**`, `.agent/**`, and `.agent-work/**` are not reusable template policy surfaces.
 
 ## Quick Start for New Projects
@@ -80,14 +80,14 @@ Use this sequence when creating an ordinary derived project from the template.
 
 ## New Project Start Policy
 
-새 프로젝트를 만들 때 이 저장소의 `dev` branch에 남아 있는 PRD, ARD, ADR, spec, plan, task, operations, reference 문서를 그대로 프로젝트 문서로 취급하지 않는다. 해당 문서들은 Project-Template 자체를 정비한 maintenance history 또는 template contract evidence다.
+새 프로젝트를 만들 때 이 저장소의 `dev` branch에 남아 있는 PRD, ARD, ADR, spec, plan, task, operations, reference 문서를 그대로 프로젝트 문서로 취급하지 않는다. 해당 문서들은 video-analysis 자체를 정비한 maintenance history 또는 template contract evidence다.
 
 새 프로젝트의 project-owned seed는 다음 두 종류뿐이다.
 
 - `docs/01.requirements/`부터 `docs/90.references/`까지의 README skeleton guide.
 - intake 이후 bootstrap이 생성하는 draft PRD-shaped seed: `docs/01.requirements/YYYY-MM-DD-project-intake-prd.md`.
 
-그 외 non-README 문서는 stage gate에 도달했을 때 `docs/99.templates/`에서 새로 만든다. 완료된 Project-Template remediation 문서를 복사하거나 이름만 바꿔 새 프로젝트 문서로 쓰지 않는다.
+그 외 non-README 문서는 stage gate에 도달했을 때 `docs/99.templates/`에서 새로 만든다. 완료된 video-analysis remediation 문서를 복사하거나 이름만 바꿔 새 프로젝트 문서로 쓰지 않는다.
 
 기본 정책은 다음과 같다.
 
@@ -122,7 +122,7 @@ contract below before treating any stage document as project-owned truth.
 | Label | Meaning | New-project behavior |
 | :--- | :--- | :--- |
 | `project-seed` | Minimal draft starting point with TODOs and no approved decisions. | Keep README skeletons and bootstrap-generated PRD seed. |
-| `active-template-contract` | Canonical rule or decision that defines Project-Template behavior. | Keep in Stage 00, templates, or template maintenance history; do not treat as project content. |
+| `active-template-contract` | Canonical rule or decision that defines video-analysis behavior. | Keep in Stage 00, templates, or template maintenance history; do not treat as project content. |
 | `template-maintenance` | Completed work record for maintaining this template. | Keep on `dev`; omit from `main` release skeleton and derived projects unless intentionally preserved with `--keep-template-history`. |
 | `archive/reference` | Historical or generated reference material. | Keep only as clearly marked reference; do not use as active requirement, spec, plan, operation, or project reference. |
 | `example` | Reusable sample marked non-authoritative. | Optional only after explicit conversion to example content. |
@@ -239,9 +239,9 @@ bash scripts/ws.sh validate-derived
 
 After bootstrap, replace skeleton guidance with project-specific content. At minimum, update the README files and create the first governed documents for the stages that apply to the new project.
 
-Bootstrap resets Project-Template maintenance history unless `--keep-template-history` is explicitly passed. The generated Stage 01 seed is a draft PRD-shaped intake document, not an approved project decision.
+Bootstrap resets video-analysis maintenance history unless `--keep-template-history` is explicitly passed. The generated Stage 01 seed is a draft PRD-shaped intake document, not an approved project decision.
 
-Do not use `--keep-template-history` for ordinary new projects. Use it only when maintaining Project-Template itself or intentionally carrying audit history into a template-maintenance branch.
+Do not use `--keep-template-history` for ordinary new projects. Use it only when maintaining video-analysis itself or intentionally carrying audit history into a template-maintenance branch.
 
 Useful scoped checks:
 

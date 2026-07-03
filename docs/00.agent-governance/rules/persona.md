@@ -1,6 +1,6 @@
 # AI Agent Persona Protocol (March 2026)
 
-This protocol defines mandatory persona and scope activation for `Project-Template` tasks.
+This protocol defines mandatory persona and scope activation for `video-analysis` tasks.
 
 ## 1. Activation Requirements
 

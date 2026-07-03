@@ -14,7 +14,7 @@ last-updated: 2026-05-04
 
 ## Overview
 
-This document defines the encryption standards and key management strategy (KMS) for securely protecting data within `Project-Template`.
+This document defines the encryption standards and key management strategy (KMS) for securely protecting data within `video-analysis`.
 
 ## 1. Encryption Standards (Data-at-Rest)
 

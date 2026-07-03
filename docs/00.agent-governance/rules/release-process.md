@@ -10,12 +10,12 @@ last-updated: 2026-05-22
 
 # Project Template Release Process
 
-This rule defines how Project-Template promotes reusable template updates from
+This rule defines how video-analysis promotes reusable template updates from
 `dev` to the clean `main` release-template branch.
 
 ## Purpose
 
-Project-Template keeps two different kinds of useful state:
+video-analysis keeps two different kinds of useful state:
 
 - `dev` may retain maintenance PRDs, ARDs, ADRs, specs, plans, tasks,
   operations notes, and references that explain how the template was improved.
@@ -107,7 +107,7 @@ Minimum migration note format:
 
 ## Hard Stops
 
-- Stop if non-README Project-Template maintenance documents remain in
+- Stop if non-README video-analysis maintenance documents remain in
   new-project-owned folders on the prepared `main` release surface.
 - Stop if `docs/99.templates/` is missing a required template for a governed
   document that the release creates or modifies.
@@ -152,7 +152,7 @@ bash scripts/ws.sh validate-derived
 ## Role definition
 
 - Applies to governance architects, docs-governance maintainers, release owners,
-  and AI agents preparing or reviewing a Project-Template release PR.
+  and AI agents preparing or reviewing a video-analysis release PR.
 
 ## Procedure
 
@@ -168,7 +168,7 @@ bash scripts/ws.sh validate-derived
 
 ## Constraints
 
-- Do not promote Project-Template maintenance history as active derived-project
+- Do not promote video-analysis maintenance history as active derived-project
   requirements, architecture, specs, execution, operations, or references.
 - Do not bypass `validate-distribution` for a release-template PR.
 - Do not introduce a stack, deployment target, SLO, API, or product assumption

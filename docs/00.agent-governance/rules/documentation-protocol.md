@@ -124,7 +124,7 @@ New or modified non-README compact stage and Stage 90 Markdown documents must
 include `## AI Execution Checklist` and `## Related Documents`.
 For new derived projects, complete `project-initialization-intake.md` before
 creating any PRD, ARD, ADR, spec, plan, task, operation, or reference document.
-Classify inherited Project-Template documents with
+Classify inherited video-analysis documents with
 `template-document-lifecycle.md` before treating them as project content.
 
 | Stage | Path                                 | Primary Template                                  | Supplementary Templates (Expanded Mode)                                                                                                                                |
@@ -209,7 +209,7 @@ Mermaid diagrams are the standard format for all architectural and design diagra
 - `docs/00.agent-governance/policy-change-log.md` records versioned policy, SDLC protocol, runtime contract, and validator changes; it must not be used as active task memory.
 - `docs/00.agent-governance/sdlc-workflow.md` records the stable human-agent collaboration flow and baton-passing model; it must not be used as active progress or policy history.
 - `00.agent-governance/sdlc-workflow.md` without the `docs/` prefix is docs-relative shorthand only. Do not create root `00.agent-governance/` or treat it as a separate workflow authority.
-- `00_System/sdlc-workflow.md` is not a Project-Template governance path. Do not create it in this template; if a derived workspace has that file, it is downstream control-plane documentation and must defer to the Stage 00 docs contract here.
+- `00_System/sdlc-workflow.md` is not a video-analysis governance path. Do not create it in this template; if a derived workspace has that file, it is downstream control-plane documentation and must defer to the Stage 00 docs contract here.
 - `_workspace/` is reserved for transient coordination artifacts, generated diagnostics, generated intelligence, and local scratch output only.
 - Incident records and postmortems live together under `docs/05.operations/incidents/YYYY/INC-###-<title>/`.
 
@@ -244,7 +244,7 @@ If `_workspace/**` conflicts with `docs/00.agent-governance/**`, the Stage 00 go
 | `docs/00.agent-governance/policy-change-log.md`        | Versioned policy, SDLC protocol, runtime contract, and validator changes.     | Link to ADR, plan, task, or user request; do not store active progress here.                         |
 | `docs/00.agent-governance/sdlc-workflow.md`            | Stable collaboration flow, baton handoff points, and review checkpoints.      | Update only when the workflow model changes; do not store progress, memory, or version history here. |
 | `00.agent-governance/sdlc-workflow.md`                 | Docs-relative shorthand for `docs/00.agent-governance/sdlc-workflow.md` only. | Must not become a root-level duplicate authority surface.                                            |
-| `00_System/sdlc-workflow.md`                           | No canonical role in Project-Template.                                        | Must not duplicate or override Stage 00 workflow, policy, memory, or progress records.               |
+| `00_System/sdlc-workflow.md`                           | No canonical role in video-analysis.                                        | Must not duplicate or override Stage 00 workflow, policy, memory, or progress records.               |
 | `_workspace/**`                                        | Transient coordination or generated output.                                   | Inspect and promote durable findings before citing as authority.                                     |
 
 ## 11. Optional Generated Intelligence

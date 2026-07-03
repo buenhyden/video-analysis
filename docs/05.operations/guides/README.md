@@ -14,11 +14,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/05.operations/guides/`는 파생 프로젝트의 사용자, 운영자, agent가 안정적인 절차와 사용법을 이해하도록 돕는 guide를 보관한다. `main` release branch에서는 Project-Template onboarding guide나 walkthrough history를 보관하지 않는다.
+`docs/05.operations/guides/`는 파생 프로젝트의 사용자, 운영자, agent가 안정적인 절차와 사용법을 이해하도록 돕는 guide를 보관한다. `main` release branch에서는 video-analysis onboarding guide나 walkthrough history를 보관하지 않는다.
 
 파생 프로젝트에서는 실제 product/software, stack, environments, release model에 맞게 guide 문서를 작성한다.
 
-아래 onboarding guides는 Project-Template 사용법을 설명하는 `active-template-contract`다. 새 프로젝트에서는 product/operator guide가 필요할 때 `guide.template.md`에서 새 문서를 만든다.
+아래 onboarding guides는 video-analysis 사용법을 설명하는 `active-template-contract`다. 새 프로젝트에서는 product/operator guide가 필요할 때 `guide.template.md`에서 새 문서를 만든다.
 
 ## Audience
 

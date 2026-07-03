@@ -14,11 +14,11 @@ last-updated: 2026-05-21
 
 ## Overview
 
-`docs/04.execution/plans/`는 파생 프로젝트에서 non-trivial work를 시작하기 전 실행 계획을 보관하는 위치이다. `main` release branch에서는 Project-Template의 과거 plan 문서를 보관하지 않는다.
+`docs/04.execution/plans/`는 파생 프로젝트에서 non-trivial work를 시작하기 전 실행 계획을 보관하는 위치이다. `main` release branch에서는 video-analysis의 과거 plan 문서를 보관하지 않는다.
 
 파생 프로젝트에서는 upstream PRD, ARD, spec, risk, validation command를 바탕으로 프로젝트별 plan을 작성한다.
 
-아래 plan rows는 Project-Template 유지보수 이력이다. 새 프로젝트에서는 이 completed plan들을 복사하지 않고 `plan.template.md`에서 새 draft plan을 만든다.
+아래 plan rows는 video-analysis 유지보수 이력이다. 새 프로젝트에서는 이 completed plan들을 복사하지 않고 `plan.template.md`에서 새 draft plan을 만든다.
 
 ## Audience
 
@@ -94,7 +94,7 @@ cp docs/99.templates/plan.template.md docs/04.execution/plans/YYYY-MM-DD-impleme
 
 - Do not plan from missing requirements or unknown stack assumptions.
 - Keep validation commands concrete and runnable.
-- Do not keep Project-Template execution history on `main`.
+- Do not keep video-analysis execution history on `main`.
 - In a derived project, replace skeleton rows with real plan documents.
 
 ## AI Execution Checklist
